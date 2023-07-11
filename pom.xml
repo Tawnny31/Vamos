@@ -14,7 +14,7 @@
     <name>proyecto</name>
     <description>Proyecto_Vamos</description>
     <properties>
-        <java.version>18</java.version>
+        <java.version>20</java.version>
     </properties>
     <dependencies>
         <dependency>

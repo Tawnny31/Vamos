@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/detalles.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link rel="stylesheet" href="/css/vista.css"/>
+        <title>Prueba</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    </head>
+    <body>
+        <header th:replace="plantilla2/template::header"></header>
+        <h1 th:text="${pelicula.titulo}"></h1>
+
+        <div class="container">    
+
+            <div class="mitad1"> 
+                <div class="mi"> 
+                    <img class="imagen" th:src="${pelicula.rutaimagen}">
+                </div>
+                <div class="mita"> 
+                    <a class="play"  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">Play <i class="material-icons-outlined" style="font-size:34px;color:white;vertical-align: middle;">play_circle</i></a>
+                    <a  class ="guarda" th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}"><i class="material-icons-outlined" style="font-size:34px;color:#AEB73E;vertical-align: middle;">bookmark    </i></a>
+                </div>
+            </div>
+            <div class="mitad2"> 
+                <span><i class="material-icons-outlined" style="font-size:26px;color:white;vertical-align: middle;">schedule</i></span> <span th:text="${pelicula.duracion}"></span>
+                <p>Año:</span> <span th:text="${pelicula.ano}"></p>
+                <p th:text="${pelicula.descripcion}"></p>
+                <p>Directores:</p>
+                <p th:text="${pelicula.director}"></p>
+                <p>Actores:</p>
+                <p th:text="${pelicula.actores}"></p>
+                <p>Género:</p>
+                <ul>
+                    <li><p th:each="genero : ${pelicula.generos}" th:text="${genero.nombre}"></p></li>
+                </ul>
+                <p>Calificación en Rotten Tomatoes:</p>
+                <span th:text="${pelicula.score}"></span><span>%</span>
+            </div>
+        </div>
+        <footer th:replace="plantilla/template::footer"></footer>
+    </body>
+</html>

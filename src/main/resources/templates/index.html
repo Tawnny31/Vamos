@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Index</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class = container> 
+            <div class = mitad1>
+
+                <p class="arriba" th:text="#{index.entretenimiento}"></p>
+                <img class="logo" src="images/logohomw.png" alt="Logo"/>
+                <p class="abajo" th:text="#{index.miratuspelis}"></p>
+
+                <div class = correo_sec>
+
+                    <form action="continuaR" method="post">
+                        <input type="email" id="email" placeholder="Correo electrónico" name="email" required>
+                        <button id="submit1" type="submit" th:text="#{index.registrate}"><i class="material-icons" style="font-size:35px;color:white;">arrow_right</i></button>
+                    </form>
+                    <p th:text="${error}" th:if="${error}" class="error-message" ></p>
+
+                </div>
+            </div>
+            <div class = mitad2>
+                <a class="signin" href="/login" th:text="#{index.inisesi}">Sign in</a>              
+            </div>
+
+
+        </div>
+        <footer th:replace="plantilla/template::footer"></footer>
+    </body>
+</html>
