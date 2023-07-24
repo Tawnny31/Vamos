@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Eventos</title>
+</head>
+<body>
+    <h1>Listado de Eventos</h1>
+    <p>Total de eventos: ${totalEventos}</p>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Lugar</th>
+            <th>Provincia</th>
+            <th>Cantón</th>
+            <th>Distrito</th>
+            <th>Hora</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+        
+        <#list eventos as evento>
+            <tr>
+                <td>${evento.idEvento}</td>
+                <td>${evento.dirLugar}</td>
+                <td>${evento.provincia}</td>
+                <td>${evento.canton}</td>
+                <td>${evento.distrito}</td>
+                <td>${evento.hora}</td>
+                <td>${evento.fecha}</td>
+                <td>
+                    <a href="/evento/modificar/${evento.idEvento}">Modificar</a>
+                    <a href="/evento/eliminar/${evento.idEvento}">Eliminar</a>
+                </td>
+            </tr>
+        </#list>
+    </table>
+    
+    <br>
+    <a href="/evento/nuevo">Agregar nuevo evento</a>
+</body>
+</html>

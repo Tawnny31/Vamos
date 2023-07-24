@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Reservas</title>
+</head>
+<body>
+    <h1>Listado de Reservas</h1>
+    <p>Total de reservas: ${totalReservas}</p>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Usuario</th>
+            <th>Evento</th>
+            <th>Acciones</th>
+        </tr>
+        
+        <#list reservas as reserva>
+            <tr>
+                <td>${reserva.idReserva}</td>
+                <td>${reserva.codigo}</td>
+                <td>${reserva.fecha}</td>
+                <td>${reserva.cantidad}</td>
+                <td>${reserva.usuario.nombre}</td>
+                <td>${reserva.evento.nombre}</td>
+                <td>
+                    <a href="/reserva/modificar/${reserva.idReserva}">Modificar</a>
+                    <a href="/reserva/eliminar/${reserva.idReserva}">Eliminar</a>
+                </td>
+            </tr>
+        </#list>
+    </table>
+    
+    <br>
+    <a href="/reserva/nuevo">Agregar nueva reserva</a>
+</body>
+</html>

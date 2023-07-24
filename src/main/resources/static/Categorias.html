@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Categorías</title>
+</head>
+<body>
+    <h1>Listado de Categorías</h1>
+    <p>Total de categorías: ${totalCategorias}</p>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Activo</th>
+
+            <th>Acciones</th>
+        </tr>
+        
+
+        <#list categorias as categoria>
+            <tr>
+                <td>${categoria.idCategoria}</td>
+                <td>${categoria.catDescripcion}</td>
+                <td>${categoria.activo}</td>
+
+                <td>
+                    <a href="/categoria/modificar/${categoria.idCategoria}">Modificar</a>
+                    <a href="/categoria/eliminar/${categoria.idCategoria}">Eliminar</a>
+                </td>
+            </tr>
+        </#list>
+    </table>
+    
+    <br>
+    <a href="/categoria/nuevo">Agregar nueva categoría</a>
+</body>
+</html>

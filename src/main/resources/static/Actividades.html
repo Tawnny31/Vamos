@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Actividades</title>
+</head>
+<body>
+    <h1>Listado de Actividades</h1>
+    <p>Total de actividades: ${totalActividades}</p>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Provincia</th>
+            <th>Cantón</th>
+            <th>Acciones</th>
+        </tr>
+        
+        <#list actividades as actividad>
+            <tr>
+                <td>${actividad.idActividad}</td>
+                <td>${actividad.nombre}</td>
+                <td>${actividad.provincia}</td>
+                <td>${actividad.canton}</td>
+                <td>
+                    <a href="/actividad/modificar/${actividad.idActividad}">Modificar</a>
+                    <a href="/actividad/eliminar/${actividad.idActividad}">Eliminar</a>
+                </td>
+            </tr>
+        </#list>
+    </table>
+    
+    <br>
+    <a href="/actividad/nuevo">Agregar nueva actividad</a>
+</body>
+</html>
